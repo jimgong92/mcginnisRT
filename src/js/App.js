@@ -24,4 +24,9 @@ var HelloWorld = React.createClass({
   }
 });
 
-React.render(<FriendsContainer />, document.getElementById('app'));
+/**
+ * <HelloWorld />
+ * <FriendsContainer />
+ * <Parent />
+ */
+React.render(<Parent />, document.getElementById('app'));
