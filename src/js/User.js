@@ -34,7 +34,7 @@ var FriendsContainer = React.createClass({
    */
   componentWillUnmount: function(){
     console.log("In componentWillUnmount")
-  },
+  }, 
   addFriend: function(friend){
     this.setState({
       friends: this.state.friends.concat([friend])
