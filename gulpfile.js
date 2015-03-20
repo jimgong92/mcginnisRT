@@ -60,15 +60,18 @@ gulp.task('production', ['replaceHTML', 'build']);
 
 gulp.task('replaceHTML', function(){
   gulp.src(path.HTML)
-    .pipe(plugins.htmlreplace({
+    .pipe(plugins.htmlReplace({
       'js': 'build/' + path.MINIFIED_OUT
     }))
     .pipe(gulp.dest(path.DEST));
 });
 gulp.task('build', function(){
-  gulp.src(path.JS)
-    .pipe(plugins.react())
-    .pipe(plugins.concat(path.MINIFIED_OUT))
-    .pipe(plugins.uglify(path.MINIFIED_OUT))
+  browserify({
+    entries: [path.ENTRY_POINT],
+    transform: [reactify]
+  })
+    .bundle()
+    .pipe(source(path.MINIFIED_OUT))
+    .pipe(plugins.streamify(plugins.uglify(path.MINIFIED_OUT)))
     .pipe(gulp.dest(path.DEST_BUILD));
 });
