@@ -16,13 +16,18 @@
     "url": "https://github.com/jimgong92/mcginnisRT/issues"
   },
   "homepage": "https://github.com/jimgong92/mcginnisRT",
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
   "dependencies": {
-    "express": "^4.12.2"
+    "express": "^4.12.2",
+    "react": "^0.13.1"
   },
   "devDependencies": {
     "browserify": "^9.0.3",
     "gulp": "^3.8.11",
-    "gulp-concat": "^2.5.2",
     "gulp-html-replace": "^1.4.4",
     "gulp-load-plugins": "^0.8.1",
     "gulp-nodemon": "^1.0.5",

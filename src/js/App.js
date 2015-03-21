@@ -1,3 +1,6 @@
+var React = require('react');
+var User = require('./User');
+/*
 var HelloWorld = React.createClass({
   getInitialState: function(){
     return {
@@ -23,10 +26,13 @@ var HelloWorld = React.createClass({
     );
   }
 });
+*/
 
 /**
  * <HelloWorld />
  * <FriendsContainer />
- * <Parent />
  */
-React.render(<Parent />, document.getElementById('app'));
+React.render(
+  <User />, 
+  document.getElementById('app')
+);

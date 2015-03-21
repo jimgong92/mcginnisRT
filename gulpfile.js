@@ -21,7 +21,7 @@ var path = {
 /**
  * Development tasks
  */
-gulp.task('default', ['watch','serve']);
+gulp.task('default', ['copy','devReplace','watch','serve']);
 
 gulp.task('copy', function(){
   gulp.src(path.HTML)
@@ -46,6 +46,13 @@ gulp.task('watch', function(){
     .bundle()
     .pipe(source(path.OUT))
     .pipe(gulp.dest(path.DEST_SRC));
+});
+gulp.task('devReplace', function(){
+  gulp.src(path.HTML)
+    .pipe(plugins.htmlReplace({
+      'js': 'src/' + path.OUT
+    }))
+    .pipe(gulp.dest(path.DEST));
 });
 gulp.task('serve', function(){
   plugins.nodemon({

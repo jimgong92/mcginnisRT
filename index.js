@@ -5,7 +5,7 @@ var app = express();
  * Express Server Configuration
  */
 app.set("port", process.env.PORT || 8000);
-app.use(express.static(__dirname + "/src"));
+app.use(express.static(__dirname + "/dist"));
 
 /**
  * 

@@ -1,3 +1,7 @@
+var React = require('react');
+var AddFriend = require('./AddFriend');
+var ShowList = require('./ShowList');
+
 var FriendsContainer = React.createClass({
   getInitialState: function(){
     return {
@@ -51,54 +55,4 @@ var FriendsContainer = React.createClass({
   }
 });
 
-var AddFriend = React.createClass({
-  getInitialState: function(){
-    return {
-      newFriend: ''
-    };
-  },
-  propTypes: {
-    addNew: React.PropTypes.func.isRequired
-  },
-  updateNewFriend: function(e){
-    this.setState({
-      newFriend: e.target.value
-    });
-  },
-  handleAddNew: function(){
-    this.props.addNew(this.state.newFriend);
-    this.setState({
-      newFriend: ''
-    });
-  },
-  render: function(){
-    return (
-      <div>
-        <input type="text" value={this.state.newFriend} onChange={this.updateNewFriend} />
-        <button onClick={this.handleAddNew}> Add Friend </button>
-      </div>
-    );
-  }
-});
-
-//TODO: Add remove friend capability next to each name
-var ShowList = React.createClass({
-  getDefaultProps: function(){
-    return {
-      names: []
-    };
-  },
-  render: function(){
-    var listItems = this.props.names.map(function(item){
-      return <li>{item}</li>;
-    });
-    return (
-      <div>
-        <h3> Friends </h3>
-        <ul>
-          {listItems}
-        </ul>
-      </div>
-    );
-  }
-});
+module.exports = FriendsContainer;
