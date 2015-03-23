@@ -21,7 +21,7 @@ var path = {
 /**
  * Development tasks
  */
-gulp.task('default', ['copy','devReplace','watch','serve']);
+gulp.task('default', ['devReplace','watch','serve']);
 
 gulp.task('copy', function(){
   gulp.src(path.HTML)

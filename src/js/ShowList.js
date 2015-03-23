@@ -7,9 +7,18 @@ var ShowList = React.createClass({
       names: []
     };
   },
+  handleRemoveFriend: function(index){
+    this.props.removeItem(index);
+  },
   render: function(){
-    var listItems = this.props.names.map(function(item){
-      return <li>{item}</li>;
+    var remove = this.props.removeItem;
+    var listItems = this.props.names.map(function(item, index){
+      return (
+        <li>
+          {item}
+          <button onClick={function(){remove(index);}}> Remove Friend </button>
+        </li>
+      );
     });
     return (
       <div>
@@ -18,6 +27,16 @@ var ShowList = React.createClass({
           {listItems}
         </ul>
       </div>
+    );
+  }
+});
+
+var LIWrapper = React.createClass({
+  render: function(){
+    return (
+      <li>
+        {this.props}
+      </li>
     );
   }
 });

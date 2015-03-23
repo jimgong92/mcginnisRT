@@ -42,14 +42,19 @@ var FriendsContainer = React.createClass({
   addFriend: function(friend){
     this.setState({
       friends: this.state.friends.concat([friend])
-    })
+    });
+  },
+  removeFriend: function(index){
+    this.setState({
+      friends: this.state.friends.slice(0,index).concat(this.state.friends.slice(index + 1))
+    });
   },
   render: function(){
     return (
       <div>
         <h3> Name: {this.state.name} </h3>
         <AddFriend addNew={this.addFriend} />
-        <ShowList names={this.state.friends} />
+        <ShowList names={this.state.friends} removeItem={this.removeFriend}/>
       </div>
     );
   }
