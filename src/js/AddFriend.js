@@ -14,7 +14,9 @@ var AddFriend = React.createClass({
       newFriend: e.target.value
     });
   },
-  handleAddNew: function(){
+  handleAddNew: function(e){
+    //Limits to non-keypress triggers and only Enter/Return
+    if(e.charCode !== 13 && e.charCode) return;
     this.props.addNew(this.state.newFriend);
     this.setState({
       newFriend: ''
@@ -23,7 +25,7 @@ var AddFriend = React.createClass({
   render: function(){
     return (
       <div>
-        <input type="text" value={this.state.newFriend} onChange={this.updateNewFriend} />
+        <input type="text" value={this.state.newFriend} onChange={this.updateNewFriend} onKeyPress={this.handleAddNew}/>
         <button onClick={this.handleAddNew}> Add Friend </button>
       </div>
     );
