@@ -14,9 +14,11 @@ var ShowList = React.createClass({
     var remove = this.props.removeItem;
     var listItems = this.props.names.map(function(item, index){
       return (
-        <li>
+        <li key={index}>
           {item}
-          <button onClick={function(){remove(index);}}> Remove Friend </button>
+          <button onClick={function(){
+            remove(index);
+          }}> Remove Friend </button>
         </li>
       );
     });
@@ -27,16 +29,6 @@ var ShowList = React.createClass({
           {listItems}
         </ul>
       </div>
-    );
-  }
-});
-
-var LIWrapper = React.createClass({
-  render: function(){
-    return (
-      <li>
-        {this.props}
-      </li>
     );
   }
 });

@@ -33,6 +33,6 @@ var HelloWorld = React.createClass({
  * <FriendsContainer />
  */
 React.render(
-  <User />, 
+  <User name='hi'/>, 
   document.getElementById('app')
 );
